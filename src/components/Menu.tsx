@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/menubar";
 
 import Link from "next/link";
+import SignInButton from "./auth/SignIn";
 
 import { CiMenuBurger } from "react-icons/ci";
 
@@ -19,10 +20,7 @@ export default function Menu() {
         </MenubarTrigger>
         <MenubarContent>
           <MenubarItem>
-            <Link href="/login">Login</Link>
-          </MenubarItem>
-          <MenubarItem>
-            <Link href="/signup">Sign Up</Link>
+            <SignInButton />
           </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
