@@ -23,8 +23,8 @@ export default async function Header() {
       {session?.user ? (
         <>
           <div className="flex items-center">
-              <UserAvatar />
-              <LogoutButton />
+            <UserAvatar />
+            <LogoutButton />
           </div>
         </>
       ) : (
