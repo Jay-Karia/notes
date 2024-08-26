@@ -1,6 +1,7 @@
 import Logo from "./Logo";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import Menu from "./Menu";
 
 export default function Header() {
   return (
@@ -9,17 +10,21 @@ export default function Header() {
         <Link href="/">
           <Logo />
         </Link>
-        <Button variant={"link"} asChild>
+        <Button variant={"link"} asChild className="hidden sm:block">
           <Link href="/new">New Note</Link>
         </Button>
       </div>
-      <div className="flex space-x-4">
+      <div className="hidden space-x-4 sm:block">
         <Button variant={"link"} asChild>
           <Link href="/login">Login</Link>
         </Button>
         <Button variant={"primary"} asChild>
           <Link href="/signup">Sign Up</Link>
         </Button>
+      </div>
+
+      <div className="block sm:hidden">
+        <Menu />
       </div>
     </div>
   );
