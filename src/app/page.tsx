@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
+import AllNotes from "@/components/AllNotes";
 
 const headingFont = localFont({
   src: "../../public/fonts/font.woff2",
@@ -10,7 +11,7 @@ const headingFont = localFont({
 
 export default function Home() {
   return (
-    <div className="flex w-full justify-center pt-4">
+    <div className="flex w-full flex-col justify-center gap-24 pt-4">
       <div className="flex flex-col items-center gap-y-8">
         <div>
           <h1
@@ -27,7 +28,7 @@ export default function Home() {
         </div>
         <div className="flex flex-wrap items-center justify-center space-x-2 sm:space-x-4">
           <Button size={"sm"} asChild variant={"primary"}>
-            <Link href="/new">New Note</Link>
+            <Link href="/new">Add Note</Link>
           </Button>
           <Button size={"sm"} variant={"outline"} asChild>
             <Link href="https://github.com/Jay-Karia/notes" target="_blank">
@@ -36,6 +37,9 @@ export default function Home() {
             </Link>
           </Button>
         </div>
+      </div>
+      <div className="flex justify-center">
+        <AllNotes />
       </div>
     </div>
   );

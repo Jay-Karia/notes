@@ -7,7 +7,7 @@ export default async function UserAvatar() {
   if (!session?.user) return null;
 
   return (
-    <div>
+    <div className="hidden sm:block">
       <Image
         className="rounded-full"
         src={session.user.image as string}
