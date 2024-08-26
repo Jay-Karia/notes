@@ -2,18 +2,26 @@
 
 import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
-
+import SpecificNote from "@/components/SpecificNote";
 import Note from "@/types/note";
+
+import { useQuery } from "@tanstack/react-query";
 
 const headingFont = localFont({
   src: "../../public/fonts/font.woff2",
 });
 
 export default function AllNotes() {
-  const [notes, setNotes] = useState<Note[]>([]);
+  const query = useQuery({
+    queryKey: ["notes"],
+    queryFn: async () => {
+      const res = await fetch("/api/notes");
+      return await res.json();
+    },
+  });
+
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex w-full flex-col items-center gap-4">
       <h4
         className={cn(
           "scroll-m-20 border-b text-xl font-semibold tracking-tight",
@@ -22,20 +30,22 @@ export default function AllNotes() {
       >
         All Notes
       </h4>
-      <div className="">
-        {notes.length === 0 ? (
-          <p className="text-sm text-muted-foreground">No Notes found.</p>
+
+      <div className="mt-8 flex w-full flex-wrap justify-center gap-12">
+        {query.isLoading ? (
+          <div>Loading...</div>
+        ) : query.isError ? (
+          <div>Error: {query.error.message}</div>
         ) : (
-          <ul>
-            {notes.map((note) => (
-              <li key={note.id}>
-                <div>
-                  <h3>{note.title}</h3>
-                  <p>{note.content}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <>
+            {query.data.notes ? (
+              query.data.notes.map((note: Note) => (
+                <SpecificNote key={note.id} note={note} />
+              ))
+            ) : (
+              <>No notes found</>
+            )}
+          </>
         )}
       </div>
     </div>

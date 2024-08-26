@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-
 import Header from "@/components/Header";
+import QueryProvider from "@/components/QueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,8 +27,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("h-full w-full", inter.className)}>
-        <Header />
-        {children}
+        <QueryProvider>
+          <div>
+            <Header />
+            {children}
+          </div>
+        </QueryProvider>
       </body>
     </html>
   );
