@@ -2,8 +2,8 @@ type Note = {
   id: string;
   title: string;
   content: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
 };
 
 export default Note;
