@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "npx eslint .",
     "format": "prettier --write src/**/*.*",
-    "format:all": "prettier --write ."
+    "format:all": "prettier --write .",
 	"postinstall": "npx prisma generate"
   },
   "dependencies": {
