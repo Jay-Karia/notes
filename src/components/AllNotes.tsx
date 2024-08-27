@@ -21,7 +21,7 @@ export default function AllNotes() {
   });
 
   return (
-    <div className="flex w-full flex-col items-center gap-4">
+    <div className="mx-14 flex w-full flex-col items-center gap-4 mb-12">
       <h4
         className={cn(
           "scroll-m-20 border-b text-xl font-semibold tracking-tight",
@@ -31,7 +31,7 @@ export default function AllNotes() {
         All Notes
       </h4>
 
-      <div className="mt-8 flex w-full flex-wrap justify-center gap-12">
+      <div className="mt-8 flex w-full flex-wrap justify-center gap-8">
         {query.isLoading ? (
           <div>Loading...</div>
         ) : query.isError ? (

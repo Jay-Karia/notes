@@ -16,9 +16,6 @@ export default async function Header() {
         <Link href="/">
           <Logo />
         </Link>
-        <Button variant={"link"} asChild className="hidden sm:block">
-          <Link href="/new">New Note</Link>
-        </Button>
       </div>
       {session?.user ? (
         <>
