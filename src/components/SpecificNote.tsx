@@ -13,7 +13,7 @@ const COLORS = [
   "bg-indigo-50",
   "bg-purple-50",
   "bg-pink-50",
-  "bg-gray-50",
+  "bg-gray-100",
   "bg-red-100",
   "bg-blue-100",
   "bg-green-100",

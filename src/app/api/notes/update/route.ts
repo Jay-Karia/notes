@@ -4,10 +4,11 @@ import { updateNote, getSpecificNote } from "@/lib/notes";
 import Note from "@/types/note";
 
 export const PUT = auth(async function PUT(req) {
-  if (!req.auth)
+  if (!req.auth || !req.auth.user)
     return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
 
   try {
+    const userId = req.auth.user.id;
     const { id, title, content } = await req.json();
     if (!id || !title || !content)
       return NextResponse.json(
@@ -16,8 +17,15 @@ export const PUT = auth(async function PUT(req) {
       );
 
     const note: Note | null = await getSpecificNote(id);
+
     if (!note)
       return NextResponse.json({ message: "Note not found" }, { status: 404 });
+
+    if (note.userId !== userId)
+      return NextResponse.json(
+        { message: "You are not authorized to update this note" },
+        { status: 403 }
+      );
 
     await updateNote(id, title, content);
 

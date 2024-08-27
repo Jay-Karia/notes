@@ -21,7 +21,7 @@ export default function AllNotes() {
   });
 
   return (
-    <div className="mx-14 flex w-full flex-col items-center gap-4 mb-12">
+    <div className="mx-14 mb-12 flex w-full flex-col items-center gap-4">
       <h4
         className={cn(
           "scroll-m-20 border-b text-xl font-semibold tracking-tight",

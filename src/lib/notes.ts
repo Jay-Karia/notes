@@ -4,7 +4,11 @@ import db from "@/lib/db";
 import Note from "@/types/note";
 
 export async function getNotes(): Promise<Note[] | null> {
-  const notes = await db.notes.findMany();
+  const notes = await db.notes.findMany({
+    include: {
+      user: true,
+    },
+  });
 
   if (notes && notes.length > 0) {
     return notes;
@@ -12,11 +16,12 @@ export async function getNotes(): Promise<Note[] | null> {
   return null;
 }
 
-export async function addNote(title: string, content: string) {
+export async function addNote(title: string, content: string, userId: string) {
   await db.notes.create({
     data: {
       title,
       content,
+      userId,
     },
   });
 }
