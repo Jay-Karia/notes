@@ -5,6 +5,8 @@ import { FaTrash } from "react-icons/fa";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { cn } from "@/lib/utils";
 
+import { useToast } from "@/components/ui/use-toast";
+
 const COLORS = [
   "bg-red-50",
   "bg-blue-50",
@@ -20,6 +22,8 @@ const COLORS = [
 ];
 
 export default function SpecificNote({ note }: { note: Note }) {
+  const { toast } = useToast();
+
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: async () => {
@@ -33,6 +37,10 @@ export default function SpecificNote({ note }: { note: Note }) {
       return await res.json();
     },
     onSuccess: () => {
+      toast({
+        title: "Note deleted",
+        variant: "success",
+      });
       queryClient.invalidateQueries({ queryKey: ["notes"] });
     },
   });

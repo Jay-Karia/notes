@@ -38,7 +38,7 @@ export default function AllNotes() {
           <div>Error: {query.error.message}</div>
         ) : (
           <>
-            {query.data.notes ? (
+            {query.data.notes && query.data?.notes.length > 0 ? (
               query.data.notes.map((note: Note) => (
                 <SpecificNote key={note.id} note={note} />
               ))

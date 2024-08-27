@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import QueryProvider from "@/components/QueryProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
           <div>
             <Header />
             {children}
+            <Toaster />
           </div>
         </QueryProvider>
       </body>
