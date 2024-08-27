@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { noteSchema } from "@/schemas/note";
 import { z } from "zod";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -94,9 +95,14 @@ export default function NewNoteForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" variant={"primary"}>
-            Add
-          </Button>
+          <div className="flex gap-4">
+            <Button type="submit" variant={"primary"}>
+              Add
+            </Button>
+            <Button variant={"secondary"} asChild>
+              <Link href="/">Back</Link>
+            </Button>
+          </div>
         </form>
       </Form>
     </div>

@@ -62,14 +62,14 @@ export default function SpecificNote({ note }: { note: Note }) {
     >
       <div>
         <Link href={`/note/${note.id}`}>
-          <h4 className="text-lg font-semibold hover:cursor-pointer">
-            {truncate(note.title, 35)}
+          <h4 className="break-words text-lg font-semibold hover:cursor-pointer">
+            {truncate(note.title, 30)}
           </h4>
         </Link>
-        <p className="hidden text-muted-foreground sm:block">
+        <p className="hidden break-words text-muted-foreground sm:block">
           {truncate(note.content, 320)}
         </p>
-        <p className="block text-muted-foreground sm:hidden">
+        <p className="block break-words text-muted-foreground sm:hidden">
           {truncate(note.content, 180)}
         </p>
       </div>
