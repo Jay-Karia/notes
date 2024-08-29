@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Notes",
-  description: "📒 Simple note talking application",
+  description: "📒 Simple note taking application",
   icons: [
     {
       rel: "icon",
