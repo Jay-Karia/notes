@@ -25,15 +25,9 @@ export default async function Header() {
           </div>
         </>
       ) : (
-        <>
-          <div className="hidden space-x-4 sm:block">
-            <SignInButton />
-          </div>
-
-          <div className="block sm:hidden">
-            <Menu />
-          </div>
-        </>
+        <div className="space-x-4">
+          <SignInButton />
+        </div>
       )}
     </div>
   );

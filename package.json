@@ -1,6 +1,6 @@
 {
   "name": "notes",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,7 +9,7 @@
     "lint": "npx eslint .",
     "format": "prettier --write src/**/*.*",
     "format:all": "prettier --write .",
-	"postinstall": "npx prisma generate"
+	  "postinstall": "npx prisma generate"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.4.2",
